@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { ActiveTradePanel } from "@/components/ActiveTradePanel";
+import { AppNav } from "@/components/AppNav";
 import { DailyStatusPanel } from "@/components/DailyStatusPanel";
 import { InstrumentSelector } from "@/components/InstrumentSelector";
 import { MarkdownExportPanel } from "@/components/MarkdownExportPanel";
@@ -220,6 +221,8 @@ export function TradeAssistantApp() {
           一次只跟踪一笔交易
         </div>
       </header>
+
+      <AppNav />
 
       {process.env.NODE_ENV === "development" ? (
         <div className="flex justify-end">
