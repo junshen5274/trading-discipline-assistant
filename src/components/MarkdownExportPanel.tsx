@@ -27,7 +27,7 @@ export function MarkdownExportPanel({ record }: MarkdownExportPanelProps) {
         <button
           type="button"
           onClick={handleCopy}
-          className="inline-flex h-9 items-center gap-2 rounded-md bg-slate-900 px-3 text-sm font-semibold text-white"
+          className="inline-flex h-9 items-center gap-2 rounded-md bg-slate-900 dark:bg-slate-100 px-3 text-sm font-semibold text-white dark:text-slate-900"
           title="复制 Markdown"
         >
           {copied ? <Check size={16} /> : <Copy size={16} />}
@@ -38,7 +38,7 @@ export function MarkdownExportPanel({ record }: MarkdownExportPanelProps) {
       <textarea
         readOnly
         value={markdown}
-        className="h-64 w-full resize-none rounded-md border border-slate-300 bg-slate-50 p-3 font-mono text-xs leading-5 text-slate-800"
+        className="h-64 w-full resize-none rounded-md border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 p-3 font-mono text-xs leading-5 text-slate-800 dark:text-slate-200"
       />
     </Panel>
   );

@@ -18,8 +18,8 @@ export function InstrumentSelector({ selected, onSelect }: InstrumentSelectorPro
             className={[
               "h-10 rounded-md border px-3 text-sm font-semibold transition",
               selected === instrument
-                ? "border-slate-900 bg-slate-900 text-white"
-                : "border-slate-200 bg-white text-slate-700 hover:border-teal-500"
+                ? "border-slate-900 dark:border-slate-100 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900"
+                : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-teal-500"
             ].join(" ")}
           >
             {instrument}

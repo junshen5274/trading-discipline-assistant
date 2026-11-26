@@ -20,15 +20,15 @@ export function DailyStatusPanel({ date, record, status, onDateChange, onResetDa
         <button
           type="button"
           onClick={onResetDay}
-          className="h-9 rounded-md border border-rose-200 bg-white px-3 text-sm font-semibold text-rose-700 hover:bg-rose-50"
+          className="h-9 rounded-md border border-rose-200 dark:border-rose-900/60 bg-white dark:bg-slate-900 px-3 text-sm font-semibold text-rose-700 dark:text-rose-300 hover:bg-rose-50 dark:hover:bg-rose-950/40"
         >
           Reset Day
         </button>
       }
     >
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <label className="flex min-h-20 flex-col justify-between rounded-md border border-slate-200 bg-slate-50 p-3">
-          <span className="flex items-center gap-2 text-xs font-medium text-slate-500">
+        <label className="flex min-h-20 flex-col justify-between rounded-md border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 p-3">
+          <span className="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
             <CalendarDays size={15} />
             Date
           </span>
@@ -38,7 +38,7 @@ export function DailyStatusPanel({ date, record, status, onDateChange, onResetDa
             onChange={(event) => onDateChange(event.target.value)}
             onInput={(event) => onDateChange(event.currentTarget.value)}
             onBlur={(event) => onDateChange(event.currentTarget.value)}
-            className="mt-2 w-full rounded-md border border-slate-300 bg-white px-2 py-1.5 text-sm text-slate-900"
+            className="mt-2 w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5 text-sm text-slate-900 dark:text-slate-100"
           />
         </label>
 
@@ -49,8 +49,8 @@ export function DailyStatusPanel({ date, record, status, onDateChange, onResetDa
           className={[
             "flex min-h-20 flex-col justify-between rounded-md border p-3",
             isLocked
-              ? "border-rose-200 bg-rose-50 text-rose-800"
-              : "border-emerald-200 bg-emerald-50 text-emerald-800"
+              ? "border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-200"
+              : "border-emerald-200 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-200"
           ].join(" ")}
         >
           <span className="flex items-center gap-2 text-xs font-medium">
@@ -61,7 +61,7 @@ export function DailyStatusPanel({ date, record, status, onDateChange, onResetDa
         </div>
       </div>
       {isLocked ? (
-        <div className="mt-3 rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-sm font-semibold text-rose-800">
+        <div className="mt-3 rounded-md border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/40 px-3 py-2 text-sm font-semibold text-rose-800 dark:text-rose-200">
           今日失败次数已达 3 次。停止开新仓，只允许复盘。
         </div>
       ) : null}
@@ -79,14 +79,14 @@ function Metric({
   tone: "neutral" | "positive" | "danger";
 }) {
   const toneClass = {
-    neutral: "border-slate-200 bg-slate-50 text-slate-900",
-    positive: "border-teal-200 bg-teal-50 text-teal-800",
-    danger: "border-rose-200 bg-rose-50 text-rose-800"
+    neutral: "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 text-slate-900 dark:text-slate-100",
+    positive: "border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950/40 text-teal-800 dark:text-teal-200",
+    danger: "border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-200"
   }[tone];
 
   return (
     <div className={`flex min-h-20 flex-col justify-between rounded-md border p-3 ${toneClass}`}>
-      <span className="text-xs font-medium text-slate-500">{label}</span>
+      <span className="text-xs font-medium text-slate-500 dark:text-slate-400">{label}</span>
       <strong className="text-xl">{value}</strong>
     </div>
   );
