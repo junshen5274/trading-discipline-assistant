@@ -67,25 +67,25 @@ export function RuleJudgePanel({
         <button
           type="button"
           onClick={onResetSetup}
-          className="inline-flex h-9 items-center gap-2 rounded-md border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+          className="inline-flex h-9 items-center gap-2 rounded-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60"
         >
           <RotateCcw size={15} />
           Reset Setup
         </button>
       }
     >
-      <div className="mb-4 rounded-md border border-slate-200 bg-slate-50 p-3">
+      <div className="mb-4 rounded-md border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 p-3">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-md bg-slate-900 px-2 py-1 text-xs font-semibold text-white">{instrument}</span>
+          <span className="rounded-md bg-slate-900 dark:bg-slate-100 px-2 py-1 text-xs font-semibold text-white dark:text-slate-900">{instrument}</span>
           <span className="rounded-md bg-teal-700 px-2 py-1 text-xs font-semibold text-white">{setup}</span>
-          <span className="text-sm text-slate-600">{rule.premise}</span>
+          <span className="text-sm text-slate-600 dark:text-slate-400">{rule.premise}</span>
         </div>
       </div>
 
       <div className="space-y-3">
         {rule.questions.map((question, index) => (
-          <div key={question.id} className="rounded-md border border-slate-200 p-3">
-            <p className="mb-2 text-sm font-medium text-slate-800">
+          <div key={question.id} className="rounded-md border border-slate-200 dark:border-slate-800 p-3">
+            <p className="mb-2 text-sm font-medium text-slate-800 dark:text-slate-200">
               {index + 1}. {question.text}
             </p>
             <div className="grid gap-2 sm:grid-cols-3">
@@ -102,7 +102,7 @@ export function RuleJudgePanel({
                         ? option.hardBlock
                           ? "border-rose-700 bg-rose-700 text-white"
                           : "border-teal-700 bg-teal-700 text-white"
-                        : "border-slate-200 bg-white text-slate-700 hover:border-teal-500"
+                        : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-teal-500"
                     ].join(" ")}
                   >
                     {option.label}
@@ -117,42 +117,42 @@ export function RuleJudgePanel({
       <label
         className={[
           "mt-4 flex cursor-pointer items-center gap-3 rounded-md border p-3 text-sm font-semibold",
-          riskSelected ? "border-rose-300 bg-rose-50 text-rose-800" : "border-slate-200 bg-white text-slate-700"
+          riskSelected ? "border-rose-300 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-200" : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300"
         ].join(" ")}
       >
         <input
           type="checkbox"
           checked={riskSelected}
           onChange={(event) => onRiskChange(event.target.checked)}
-          className="h-4 w-4 rounded border-slate-300 accent-rose-700"
+          className="h-4 w-4 rounded border-slate-300 dark:border-slate-700 accent-rose-700"
         />
         {rule.riskLabel}
       </label>
 
       <div className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_auto]">
         <label className="block">
-          <span className="mb-1 block text-xs font-medium text-slate-500">入场价，可选</span>
+          <span className="mb-1 block text-xs font-medium text-slate-500 dark:text-slate-400">入场价，可选</span>
           <input
             value={entryPrice}
             onChange={(event) => onEntryPriceChange(event.target.value)}
             placeholder="e.g. 18972.25"
-            className="h-10 w-full rounded-md border border-slate-300 px-3 text-sm"
+            className="h-10 w-full rounded-md border border-slate-300 dark:border-slate-700 px-3 text-sm"
           />
         </label>
         <label className="block">
-          <span className="mb-1 block text-xs font-medium text-slate-500">备注</span>
+          <span className="mb-1 block text-xs font-medium text-slate-500 dark:text-slate-400">备注</span>
           <input
             value={note}
             onChange={(event) => onNoteChange(event.target.value)}
             placeholder="简短执行备注"
-            className="h-10 w-full rounded-md border border-slate-300 px-3 text-sm"
+            className="h-10 w-full rounded-md border border-slate-300 dark:border-slate-700 px-3 text-sm"
           />
         </label>
         <button
           type="button"
           onClick={onEntered}
           disabled={!canEnter}
-          className="mt-5 inline-flex h-10 items-center justify-center gap-2 rounded-md bg-slate-900 px-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-slate-300 md:min-w-32"
+          className="mt-5 inline-flex h-10 items-center justify-center gap-2 rounded-md bg-slate-900 dark:bg-slate-100 px-4 text-sm font-semibold text-white dark:text-slate-900 disabled:cursor-not-allowed disabled:bg-slate-300 dark:disabled:bg-slate-700 md:min-w-32"
           title={disabledReason || "记录已入场"}
         >
           <LogIn size={16} />
@@ -164,12 +164,12 @@ export function RuleJudgePanel({
         className={[
           "mt-4 flex items-start gap-3 rounded-md border p-3",
           gradeResult.grade === "No Trade"
-            ? "border-rose-200 bg-rose-50 text-rose-900"
+            ? "border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-100"
             : gradeResult.grade === "Pending"
-              ? "border-slate-200 bg-slate-50 text-slate-700"
+              ? "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300"
               : gradeResult.grade === "C"
-                ? "border-amber-200 bg-amber-50 text-amber-900"
-                : "border-teal-200 bg-teal-50 text-teal-900"
+                ? "border-amber-200 dark:border-amber-900/60 bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-100"
+                : "border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950/40 text-teal-900 dark:text-teal-100"
         ].join(" ")}
       >
         {gradeResult.grade === "No Trade" || gradeResult.grade === "Pending" || gradeResult.grade === "C" ? (

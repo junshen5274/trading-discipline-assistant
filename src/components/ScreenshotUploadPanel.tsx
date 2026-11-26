@@ -73,7 +73,7 @@ export function ScreenshotUploadPanel({ imageDataUrl, imageName, disabled, onIma
             type="button"
             disabled={disabled}
             onClick={() => onImageChange("", "")}
-            className="flex items-center gap-1 rounded-md px-2 py-1 text-xs font-semibold text-slate-500 hover:bg-slate-100 hover:text-rose-700 disabled:opacity-50"
+            className="flex items-center gap-1 rounded-md px-2 py-1 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-rose-700 dark:hover:text-rose-300 disabled:opacity-50"
           >
             <Trash2 className="h-3.5 w-3.5" /> 清除
           </button>
@@ -105,13 +105,13 @@ export function ScreenshotUploadPanel({ imageDataUrl, imageName, disabled, onIma
           onDragLeave={() => setIsDragging(false)}
           onDrop={handleDrop}
           className={`flex min-h-64 cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed px-6 py-10 text-center transition ${
-            isDragging ? "border-teal-500 bg-teal-50" : "border-slate-300 bg-slate-50 hover:border-teal-400 hover:bg-teal-50/50"
+            isDragging ? "border-teal-500 bg-teal-50 dark:bg-teal-950/40" : "border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 hover:border-teal-400 dark:hover:border-teal-600 hover:bg-teal-50/50 dark:hover:bg-teal-950/30"
           }`}
         >
-          <div className="mb-4 rounded-full bg-white p-3 text-teal-700 shadow-sm"><ImagePlus className="h-6 w-6" /></div>
-          <p className="font-semibold text-slate-900">拖入截图或点击上传</p>
-          <p className="mt-2 flex items-center gap-1.5 text-sm text-slate-500"><ClipboardPaste className="h-4 w-4" /> 也可以直接粘贴剪贴板图片</p>
-          <p className="mt-1 flex items-center gap-1.5 text-xs text-slate-400"><Upload className="h-3.5 w-3.5" /> PNG / JPEG / WebP，最大 15MB</p>
+          <div className="mb-4 rounded-full bg-white dark:bg-slate-900 p-3 text-teal-700 dark:text-teal-300 shadow-sm"><ImagePlus className="h-6 w-6" /></div>
+          <p className="font-semibold text-slate-900 dark:text-slate-100">拖入截图或点击上传</p>
+          <p className="mt-2 flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400"><ClipboardPaste className="h-4 w-4" /> 也可以直接粘贴剪贴板图片</p>
+          <p className="mt-1 flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500"><Upload className="h-3.5 w-3.5" /> PNG / JPEG / WebP，最大 15MB</p>
         </div>
       )}
     </Panel>
